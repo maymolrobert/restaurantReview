@@ -1,0 +1,95 @@
+@model RestaurantReviews.Models.Review
+
+@{
+    ViewData["Title"] = "Create Review";
+}
+
+<div class="container my-5">
+
+    <div class="card shadow-lg">
+        <div class="card-body">
+            <form asp-action="Create" enctype="multipart/form-data">
+                <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
+
+                <!-- Restaurant Information Section -->
+                <fieldset>
+                    <legend>Restaurant Information</legend>
+                    <div class="form-group">
+                        <label asp-for="RestaurantName" class="form-label"></label>
+                        <input asp-for="RestaurantName" class="form-control" placeholder="Enter the restaurant name" />
+                        <span asp-validation-for="RestaurantName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="FoodName" class="form-label"></label>
+                        <input asp-for="FoodName" class="form-control" placeholder="Enter the food name" />
+                        <span asp-validation-for="FoodName" class="text-danger"></span>
+                    </div>
+                </fieldset>
+
+                <!-- Reviewer Information Section -->
+                <fieldset class="mt-4">
+                    <legend>Reviewer Information</legend>
+                    <div class="form-group">
+                        <label asp-for="UserName" class="form-label"></label>
+                        <input asp-for="UserName" class="form-control" placeholder="Enter your name" />
+                        <span asp-validation-for="UserName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Description" class="form-label"></label>
+                        <textarea asp-for="Description" class="form-control" rows="4" placeholder="Write a detailed review"></textarea>
+                        <span asp-validation-for="Description" class="text-danger"></span>
+                    </div>
+                </fieldset>
+
+                <!-- Review Details Section -->
+                <fieldset class="mt-4">
+                    <legend>Review Details</legend>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="Price" class="form-label"></label>
+                                <input asp-for="Price" class="form-control" type="number" step="0.01" placeholder="Enter price" />
+                                <span asp-validation-for="Price" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="Score" class="form-label"></label>
+                                <input asp-for="Score" class="form-control" type="number" step="0.1" placeholder="Rate the food (1-5)" />
+                                <span asp-validation-for="Score" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="PublishDate" class="form-label"></label>
+                        <input asp-for="PublishDate" class="form-control" type="date" />
+                        <span asp-validation-for="PublishDate" class="text-danger"></span>
+                    </div>
+                </fieldset>
+
+                <!-- Image Upload Section -->
+                <fieldset class="mt-4">
+                    <legend >Upload Image</legend>
+                    <div class="form-group">
+                        <label asp-for="ImageFile" class="form-label"></label>
+                        <input asp-for="ImageFile" class="form-control" type="file" />
+                        <span asp-validation-for="ImageFile" class="text-danger"></span>
+                    </div>
+                </fieldset>
+
+                <!-- Submit Button -->
+                <div class="mt-4 text-center">
+                    <button type="submit" class="btn btn-success px-5">Submit Review</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="text-center mt-3">
+        <a asp-action="Index" class="btn btn-secondary">View Reviews</a>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

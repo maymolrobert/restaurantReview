@@ -1,0 +1,41 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+.card-body{
+  background-color: rgb(253, 253, 253);
+}
+
+.search-btn{
+  background-color: #157347;
+}
+
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.btn-primary {
+  background-color: #ffc107;
+  border-color: #ffc107;
+  color: black; /* Optional: Set text color for better readability */
+}
+.btn-primary:hover {
+  background-color: #ffc107; /* Optional: Slightly darker color on hover */
+  border-color: #ffc107;
+}
